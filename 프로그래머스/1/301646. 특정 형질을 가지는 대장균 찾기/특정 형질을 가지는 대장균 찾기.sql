@@ -1,0 +1,3 @@
+-- 코드를 작성해주세요
+SELECT count(*) AS COUNT FROM ECOLI_DATA WHERE (GENOTYPE%2=1 OR GENOTYPE div 4%2=1)
+and GENOTYPE div 2%2!=1
