@@ -1,0 +1,2 @@
+-- 코드를 작성해주세요
+select sum(gr.SCORE) SCORE, gr.EMP_NO, em.EMP_NAME, em.POSITION, em.EMAIL from HR_GRADE gr join HR_EMPLOYEES em on gr.EMP_NO=em.EMP_NO group by gr.EMP_NO order by sum(gr.SCORE) desc limit 1;
