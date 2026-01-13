@@ -1,0 +1,2 @@
+-- 코드를 작성해주세요
+select ID, case when (select count(p.PARENT_ID) from ECOLI_DATA p group by p.PARENT_ID having p.PARENT_ID is not null and p.PARENT_ID=ID) is not null then (select count(p.PARENT_ID) from ECOLI_DATA p group by p.PARENT_ID having p.PARENT_ID is not null and p.PARENT_ID=ID) else 0 end CHILD_COUNT from ECOLI_DATA
