@@ -1,0 +1,2 @@
+-- 코드를 입력하세요
+SELECT user_id, nickname, concat(city, " ", street_address1, " ", street_address2) 전체주소, CONCAT(SUBSTRING(tlno, 1, 3), '-', SUBSTRING(tlno, 4, 4), '-', SUBSTRING(tlno, 8, 4)) 전화번호 from used_goods_user join used_goods_board b on user_id=b.writer_id group by user_id having count(user_id)>=3 order by user_id desc
