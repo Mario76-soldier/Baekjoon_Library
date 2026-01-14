@@ -1,0 +1,2 @@
+-- 코드를 입력하세요
+SELECT c.car_id, c.car_type, round(c.daily_fee*30*(100-(select d.discount_rate from CAR_RENTAL_COMPANY_DISCOUNT_PLAN d where d.car_type=c.car_type and duration_type like "30%"))*0.01) fee from CAR_RENTAL_COMPANY_RENTAL_HISTORY h join CAR_RENTAL_COMPANY_CAR c on h.car_id=c.car_id where c.car_id not in (select car_id from CAR_RENTAL_COMPANY_RENTAL_HISTORY where end_date>="2022-11-01" and START_DATE<="2022-12-01") group by c.car_id having car_type in ("세단", "SUV") and fee>=500000 and fee<2000000 order by fee desc, car_type, car_id desc
