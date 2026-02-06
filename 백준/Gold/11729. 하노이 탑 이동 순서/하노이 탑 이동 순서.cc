@@ -2,23 +2,24 @@
 #include <cmath>
 using namespace std;
 
-void func(int n, int start, int end, int mid) {
-	if (n == 1) {
-		cout << start << " " << end << '\n';
-	}
-	else {
-		func(n - 1, start, mid, end);
-		cout << start << " " << end << '\n';
-		func(n - 1, mid, end, start);
-	}
+void hanoi(int n, int a, int b, int c){
+    if(n==1){
+        cout<<a<<' '<<c<<'\n';
+    }
+    else{
+        hanoi(n-1, a, c, b);
+        cout<<a<<' '<<c<<'\n';
+        hanoi(n-1, b, a, c);
+    }
 }
 
-int main() {
-	ios::sync_with_stdio(false);
+int main(){
+    ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	int n;
-	cin >> n;
-	cout << (int)pow(2, n) - 1 << '\n';
-	func(n, 1, 3, 2);
+    
+    int n;
+    cin>>n;
+    cout<<(int)pow(2, n)-1<<'\n';
+    hanoi(n, 1, 2, 3);
 }
